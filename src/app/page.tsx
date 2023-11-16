@@ -4,6 +4,7 @@ import backgroundImg from "./../assets/homeBackground.jpg";
 import Image from "next/image";
 import { useState } from "react";
 import { BtnComponent } from "@/components/button/button";
+import { InsertImgSection } from "@/components/imgUpload/InsertImg";
 
 export default function Home() {
   const [start, setStart] = useState<boolean>(false)
@@ -18,6 +19,7 @@ export default function Home() {
         alt="full stadium"
       />
 <BtnComponent text="clique aqui" size="1" background="transparent" color="white" type="button" onClick={() => setStart(!start)}/>
+    {start && <InsertImgSection/>}
     </main>
   );
 }
