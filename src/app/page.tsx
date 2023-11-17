@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import styles from "./page.module.css";
 import backgroundImg from "./../assets/homeBackground.jpg";
 import Image from "next/image";
@@ -7,8 +7,8 @@ import { BtnComponent } from "@/components/button/button";
 import { InsertImgSection } from "@/components/imgUpload/InsertImg";
 
 export default function Home() {
-  const [start, setStart] = useState<boolean>(false)
-  console.log(start)
+  const [start, setStart] = useState<boolean>(false);
+  console.log(start);
   return (
     <main className={styles.main}>
       <Image
@@ -18,8 +18,15 @@ export default function Home() {
         className={styles.bgImg}
         alt="full stadium"
       />
-<BtnComponent text="clique aqui" size="1" background="transparent" color="white" type="button" onClick={() => setStart(!start)}/>
-    {start && <InsertImgSection/>}
+      <BtnComponent
+        text="Iniciar"
+        size="1"
+        background="transparent"
+        color="white"
+        type="button"
+        onClick={() => setStart(!start)}
+      />
+      {start && <InsertImgSection />}
     </main>
   );
 }
