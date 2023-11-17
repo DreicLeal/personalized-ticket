@@ -1,11 +1,12 @@
 "use client";
-import { useState } from "react";
+
 import styles from "./index.module.scss"
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import { useUser } from "@/contexts/userContext";
 
 
 export const InsertImgSection: React.FC = () => {
-  const [selectedImg, setSelectedImg] = useState<File | null>(null);
+  const {selectedImg, setSelectedImg} = useUser()
 
   const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -21,7 +22,6 @@ export const InsertImgSection: React.FC = () => {
       <input
         id="upload-btn"
         type="file"
-        style={{display:"none"}}
         accept="image/*"
         onChange={handleUpload}
       />
