@@ -6,7 +6,7 @@ import { useDebounceEffect } from "./debounceEffect";
 import { canvasPreview } from "./canvasPreview";
 
 export const ImgCropModal = () => {
-  const { crop, setCrop, aspect, selectedImg, onImgLoad } = useUser();
+  const { crop, setCrop, aspect, selectedImg, onImgLoad, setCroppedImg } = useUser();
 
   const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
   const imgRef = useRef<HTMLImageElement | null>(null);
@@ -21,6 +21,8 @@ export const ImgCropModal = () => {
         previewCanvasRef.current
       ) {
         canvasPreview(imgRef.current, previewCanvasRef.current, completedCrop);
+        const cropImgDataUrl = previewCanvasRef.current.toDataURL('image/url');
+        setCroppedImg(cropImgDataUrl)
       }
     },
     100,

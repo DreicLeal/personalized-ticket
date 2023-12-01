@@ -11,4 +11,6 @@ export interface UserProviderData {
   setCrop: Dispatch<SetStateAction<Crop | undefined>>;
   aspect: number | undefined;
   onImgLoad: (img: React.SyntheticEvent<HTMLImageElement>) => void;
+  croppedImg: string;
+  setCroppedImg: Dispatch<SetStateAction<string>>;
 }

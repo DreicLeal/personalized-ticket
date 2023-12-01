@@ -11,6 +11,7 @@ const UserContext = createContext<UserProviderData>({} as UserProviderData);
 
 export const UserProvider = ({ children }: IproviderProps) => {
   const [selectedImg, setSelectedImg] = useState<string>("");
+  const [croppedImg, setCroppedImg] = useState<string>("");
   const [crop, setCrop] = useState<Crop>();
   const [aspect, setAspect] = useState<number | undefined>(1);
 
@@ -20,22 +21,34 @@ export const UserProvider = ({ children }: IproviderProps) => {
     aspect: number
   ) => {
     return centerCrop(
-      makeAspectCrop({ unit: "%", width:40 }, aspect, mediaWidth, mediaHeight),
+      makeAspectCrop({ unit: "%", width: 40 }, aspect, mediaWidth, mediaHeight),
       mediaWidth,
       mediaHeight
     );
   };
 
-  const onImgLoad = useCallback((img: React.SyntheticEvent<HTMLImageElement>) => {
-    if (aspect) {
-      const { width, height } = img.currentTarget;
-      setCrop(centerAspectCrop(width, height, aspect));
-    }
-  }, []);
+  const onImgLoad = useCallback(
+    (img: React.SyntheticEvent<HTMLImageElement>) => {
+      if (aspect) {
+        const { width, height } = img.currentTarget;
+        setCrop(centerAspectCrop(width, height, aspect));
+      }
+    },
+    []
+  );
 
   return (
     <UserContext.Provider
-      value={{ aspect, selectedImg, setSelectedImg, setCrop, crop, onImgLoad }}
+      value={{
+        croppedImg,
+        setCroppedImg,
+        aspect,
+        selectedImg,
+        setSelectedImg,
+        setCrop,
+        crop,
+        onImgLoad,
+      }}
     >
       {children}
     </UserContext.Provider>
