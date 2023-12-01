@@ -1,19 +1,45 @@
-"use client"
+"use client";
 
-import { IproviderProps, UserProviderData } from "@/interface/contextsInterface"
-import { createContext, useContext, useState } from "react"
+import {
+  IproviderProps,
+  UserProviderData,
+} from "@/interface/contextsInterface";
+import { createContext, useCallback, useContext, useState } from "react";
+import { Crop, centerCrop, makeAspectCrop } from "react-image-crop";
 
-const UserContext = createContext<UserProviderData>({} as UserProviderData)
+const UserContext = createContext<UserProviderData>({} as UserProviderData);
 
-export const UserProvider = ({children}:IproviderProps) => {
+export const UserProvider = ({ children }: IproviderProps) => {
+  const [selectedImg, setSelectedImg] = useState<string>("");
+  const [crop, setCrop] = useState<Crop>();
+  const [aspect, setAspect] = useState<number | undefined>(1);
 
-    const [selectedImg, setSelectedImg] = useState<File | null>(null)
+  const centerAspectCrop = (
+    mediaWidth: number,
+    mediaHeight: number,
+    aspect: number
+  ) => {
+    return centerCrop(
+      makeAspectCrop({ unit: "%", width:40 }, aspect, mediaWidth, mediaHeight),
+      mediaWidth,
+      mediaHeight
+    );
+  };
 
-    return (
-        <UserContext.Provider value={{selectedImg, setSelectedImg}}>
-        {children}
-        </UserContext.Provider>
-    )
-}
+  const onImgLoad = useCallback((img: React.SyntheticEvent<HTMLImageElement>) => {
+    if (aspect) {
+      const { width, height } = img.currentTarget;
+      setCrop(centerAspectCrop(width, height, aspect));
+    }
+  }, []);
 
-export const useUser = () => useContext(UserContext)
+  return (
+    <UserContext.Provider
+      value={{ aspect, selectedImg, setSelectedImg, setCrop, crop, onImgLoad }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+};
+
+export const useUser = () => useContext(UserContext);
