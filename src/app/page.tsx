@@ -8,7 +8,6 @@ import { InsertImgSection } from "@/components/imgUpload/InsertImg";
 
 export default function Home() {
   const [start, setStart] = useState<boolean>(false);
-  console.log(start);
   return (
     <main className={styles.main}>
       <Image
