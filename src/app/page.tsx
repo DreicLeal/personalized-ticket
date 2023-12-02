@@ -5,9 +5,12 @@ import Image from "next/image";
 import { useState } from "react";
 import { BtnComponent } from "@/components/button/button";
 import { InsertImgSection } from "@/components/imgUpload/InsertImg";
+import { useUser } from "@/contexts/userContext";
+import { TicketDesign } from "@/components/ticketDesign/TicketDesign";
 
 export default function Home() {
   const [start, setStart] = useState<boolean>(false);
+  const { ticketDesign } = useUser();
   return (
     <main className={styles.main}>
       <Image
@@ -26,6 +29,7 @@ export default function Home() {
         onClick={() => setStart(!start)}
       />
       {start && <InsertImgSection />}
+      {ticketDesign && <TicketDesign />}
     </main>
   );
 }

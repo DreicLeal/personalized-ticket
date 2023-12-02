@@ -10,10 +10,11 @@ import { Crop, centerCrop, makeAspectCrop } from "react-image-crop";
 const UserContext = createContext<UserProviderData>({} as UserProviderData);
 
 export const UserProvider = ({ children }: IproviderProps) => {
-  const [selectedImg, setSelectedImg] = useState<string>("");
+  const [selectedImg, setSelectedImg] = useState<string | undefined>();
   const [croppedImg, setCroppedImg] = useState<string>("");
   const [crop, setCrop] = useState<Crop>();
   const [aspect, setAspect] = useState<number | undefined>(1);
+  const [ticketDesign, setTicketDesign] = useState<boolean>(false)
 
   const centerAspectCrop = (
     mediaWidth: number,
@@ -40,6 +41,8 @@ export const UserProvider = ({ children }: IproviderProps) => {
   return (
     <UserContext.Provider
       value={{
+        ticketDesign,
+        setTicketDesign,
         croppedImg,
         setCroppedImg,
         aspect,
