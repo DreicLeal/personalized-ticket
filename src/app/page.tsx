@@ -1,6 +1,7 @@
 "use client";
 import styles from "./page.module.css";
 import backgroundImg from "./../assets/homeBackground.jpg";
+import PDAExp from "./../assets/PDAExp.png";
 import Image from "next/image";
 import { useState } from "react";
 import { BtnComponent } from "@/components/button/button";
@@ -20,6 +21,7 @@ export default function Home() {
         className={styles.bgImg}
         alt="full stadium"
       />
+      <Image src={PDAExp} alt="PDA logo" className={styles.logo} />
       <BtnComponent
         text="Iniciar"
         size="1"
