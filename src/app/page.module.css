@@ -8,4 +8,8 @@
   .bgImg {
     z-index: -1;
   }
+  .logo{
+    width:240px;
+    height:72px;
+  }
 }
