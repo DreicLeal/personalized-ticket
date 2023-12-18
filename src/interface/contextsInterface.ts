@@ -5,10 +5,14 @@ export interface IproviderProps {
 }
 
 export interface UserProviderData {
-  selectedImg: string;
-  setSelectedImg: Dispatch<SetStateAction<string>>;
+  selectedImg: string | undefined;
+  setSelectedImg: Dispatch<SetStateAction<string | undefined>>;
   crop: Crop | undefined;
   setCrop: Dispatch<SetStateAction<Crop | undefined>>;
   aspect: number | undefined;
   onImgLoad: (img: React.SyntheticEvent<HTMLImageElement>) => void;
+  croppedImg: string;
+  setCroppedImg: Dispatch<SetStateAction<string>>;
+  ticketDesign: boolean;
+  setTicketDesign: Dispatch<SetStateAction<boolean>>;
 }
