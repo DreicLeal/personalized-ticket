@@ -1,0 +1,50 @@
+.modalOverlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+  .ticketContainer {
+    width: 170px;
+    height: 340px;
+    background-color: aliceblue;
+    border-radius: 6px;
+    position: relative;
+    .ticketSelected {
+      width: 170px;
+      height: 340px;
+    }
+    .ticketPhoto {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      top: 26.5%;
+      left: 28%;
+    
+    }
+  }
+  .selectTicketContainer {
+    display: flex;
+    max-height: 100px;
+    max-width: fit-content;
+    li {
+      max-width: 100%;
+      max-height: 100%;
+      img {
+        width: 70px;
+        height: 140px;
+      }
+    }
+  }
+}
