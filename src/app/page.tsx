@@ -4,7 +4,6 @@ import backgroundImg from "./../assets/homeBackground.jpg";
 import PDAExp from "./../assets/PDAExp.png";
 import Image from "next/image";
 import { useState } from "react";
-import { BtnComponent } from "@/components/button/button";
 import { InsertImgSection } from "@/components/imgUpload/InsertImg";
 import { useUser } from "@/contexts/userContext";
 import { TicketDesign } from "@/components/ticketDesign/TicketDesign";
@@ -15,21 +14,17 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Image
-        layout="fill"
-        objectFit="cover"
         src={backgroundImg}
         className={styles.bgImg}
         alt="full stadium"
       />
       <Image src={PDAExp} alt="PDA logo" className={styles.logo} />
-      <BtnComponent
-        text="Iniciar"
-        size="1"
-        background="transparent"
+      <button
+      className={styles.startBtn}
         color="white"
         type="button"
         onClick={() => setStart(!start)}
-      />
+      >Iniciar</button>
       {start && <InsertImgSection />}
       {ticketDesign && <TicketDesign />}
     </main>
