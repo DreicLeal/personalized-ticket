@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export const TicketDesign = () => {
   const [choosedLayout, setChoosedLayout] = useState(0);
+  const [username, setUsername] = useState("")
   const { croppedImg } = useUser();
   return (
     <div className={styles.modalOverlay}>
@@ -18,7 +19,10 @@ export const TicketDesign = () => {
             height={250}
             className={styles.ticketPhoto}
           />
+          <p className={styles.username}>{username}</p>
       </div>
+      <label htmlFor="username">Nome</label>
+      <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
       <ul className={styles.selectTicketContainer}>
         {ticketModels.map((model, i) => (
           <li key={i} onClick={() => setChoosedLayout(i)}>
