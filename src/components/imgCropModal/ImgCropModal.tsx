@@ -46,7 +46,7 @@ export const ImgCropModal = () => {
   );
   return (
     <div className={styles.modalOverlay}>
-      <div>
+      <div className={styles.imgContainer}>
         <ReactCrop
           className={styles.modalContainer}
           crop={crop}
@@ -64,7 +64,7 @@ export const ImgCropModal = () => {
           />
         </ReactCrop>
         <canvas className={styles.preview} ref={previewCanvasRef} />
-        <button onClick={() => forwardToDesign()}>Ok</button>
+        <button onClick={() => forwardToDesign()}>Pronto</button>
       </div>
     </div>
   );
