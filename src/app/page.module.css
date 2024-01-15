@@ -16,10 +16,11 @@
   }
   .startBtn {
     background: transparent;
-    color: white;
-    padding: 2px 15px;
+    color: orangered;
+    padding: 4px 20px;
     border-radius: 10px;
     border: 1px solid;
+    border-color: orangered
   }
   .bgImg {
     width: 100vw;
