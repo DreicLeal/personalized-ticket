@@ -1,6 +1,6 @@
 "use client";
 import styles from "./page.module.css";
-import backgroundImg from "./../assets/homeBackground.jpg";
+import backgroundImg from "./../assets/mainBackground.jpg";
 import PDAExp from "./../assets/PDAExp.png";
 import Image from "next/image";
 import { useState } from "react";
