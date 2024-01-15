@@ -15,7 +15,7 @@ export const UserProvider = ({ children }: IproviderProps) => {
   const [crop, setCrop] = useState<Crop>();
   const [aspect, setAspect] = useState<number | undefined>(1);
   const [ticketDesign, setTicketDesign] = useState<boolean>(false)
-
+  const [imgData, setImgData] = useState<string | null>(null);
   const centerAspectCrop = (
     mediaWidth: number,
     mediaHeight: number,
@@ -41,6 +41,8 @@ export const UserProvider = ({ children }: IproviderProps) => {
   return (
     <UserContext.Provider
       value={{
+        imgData,
+        setImgData,
         ticketDesign,
         setTicketDesign,
         croppedImg,

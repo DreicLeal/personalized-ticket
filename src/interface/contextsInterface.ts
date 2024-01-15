@@ -15,4 +15,6 @@ export interface UserProviderData {
   setCroppedImg: Dispatch<SetStateAction<string>>;
   ticketDesign: boolean;
   setTicketDesign: Dispatch<SetStateAction<boolean>>;
+  setImgData: Dispatch<SetStateAction<string | null>>;
+  imgData: string | null;
 }
