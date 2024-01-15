@@ -11,7 +11,7 @@ export default function AllDone() {
       <h2>IMPORTANTE</h2>
       <h3>O seu ingresso foi gerado com sucesso</h3>
       <p>Agora é só efetuar o download do seu ingresso e fazer uma publicação no story do seu instagram marcando <span className={styles.pdaprofile}>@pdaexperience</span> no campo destinado</p>
-      <Image src={imgData!} className={styles.ticketToShare} alt="ticket done" width={170} height={340} />
+      {imgData && <Image src={imgData} className={styles.ticketToShare} alt="ticket done" width={170} height={340} />}
       <p>Pressione o ingresso e salve em sua galeria</p>
     </div>
   );
