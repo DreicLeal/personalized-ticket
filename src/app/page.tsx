@@ -1,6 +1,5 @@
 "use client";
 import styles from "./page.module.css";
-import backgroundImg from "./../assets/mainBackground.jpg";
 import PDAExp from "./../assets/PDAExp.png";
 import Image from "next/image";
 import { useState } from "react";
@@ -13,11 +12,7 @@ export default function Home() {
   const { ticketDesign } = useUser();
   return (
     <main className={styles.main}>
-      <Image
-        src={backgroundImg}
-        className={styles.bgImg}
-        alt="full stadium"
-      />
+
       <div className={styles.startContainer}>
       <Image src={PDAExp} alt="PDA logo" className={styles.logo} />
       <button
