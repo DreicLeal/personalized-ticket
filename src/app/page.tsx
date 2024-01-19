@@ -18,6 +18,7 @@ export default function Home() {
         className={styles.bgImg}
         alt="full stadium"
       />
+      <div className={styles.startContainer}>
       <Image src={PDAExp} alt="PDA logo" className={styles.logo} />
       <button
       className={styles.startBtn}
@@ -25,6 +26,7 @@ export default function Home() {
         type="button"
         onClick={() => setStart(!start)}
       >Iniciar</button>
+      </div>
       {start && <InsertImgSection />}
       {ticketDesign && <TicketDesign />}
     </main>

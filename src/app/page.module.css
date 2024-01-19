@@ -1,7 +1,6 @@
 .main {
   display: flex;
   flex-direction: column;
-  padding-top: 32px;
   gap: 20px;
   align-items: center;
   height: 100%;
@@ -9,18 +8,26 @@
   .bgImg {
     z-index: -1;
   }
-  .logo {
-    width: 240px;
-    height: 72px;
+  .startContainer {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
     position: relative;
-  }
-  .startBtn {
-    background: transparent;
-    color: orangered;
-    padding: 4px 20px;
-    border-radius: 10px;
-    border: 1px solid;
-    border-color: orangered
+    top:25%;
+    .logo {
+      width: 240px;
+      height: 72px;
+    }
+    .startBtn {
+      background: transparent;
+      color: orangered;
+      width: fit-content;
+      padding: 4px 20px;
+      border-radius: 10px;
+      border: 1px solid;
+      border-color: orangered;
+    }
   }
   .bgImg {
     width: 100vw;
@@ -29,4 +36,5 @@
     position: absolute;
     bottom: 0;
   }
+
 }
