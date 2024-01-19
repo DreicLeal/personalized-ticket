@@ -3,9 +3,16 @@ import { useUser } from "@/contexts/userContext";
 import Image from "next/image";
 import styles from "./index.module.scss";
 import { saveAs } from "file-saver";
+import { useEffect, useState } from "react";
 export default function AllDone() {
-  const { innerWidth } = window;
+  const [width, setWidth] = useState(0)
   const { imgData } = useUser();
+
+  useEffect(() => {
+if(typeof window !== "undefined"){
+  setWidth(innerWidth)
+}
+  },[])
 
   const downloadImg = () => {
     if (imgData) {
@@ -32,7 +39,7 @@ export default function AllDone() {
           height={340}
         />
       )}
-      {innerWidth < 450 ? (
+      {width < 450 ? (
         <p>Pressione o ingresso e salve em sua galeria</p>
       ) : (
         <button onClick={downloadImg}>download</button>
