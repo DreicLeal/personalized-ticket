@@ -20,6 +20,12 @@
       width: 240px;
       height: 72px;
     }
+    @media (max-width: 400px) {
+      .logo {
+        width: 80%;
+        height: 40%;
+      }
+    }
     .startBtn {
       background: transparent;
       color: orangered;
